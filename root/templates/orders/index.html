@@ -1,0 +1,86 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<div id="breadcrumb" class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="breadcrumb-header">{{ title }}</h3>
+					<ul class="breadcrumb-tree">
+						<li><a href="#">orders</a></li>
+						<li class="active">index</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section small">
+		<div class="container">
+			<div class="row">
+				<!-- Content Placeholder -->
+				<h3 style="color: grey">Текущие заказы</h3>
+                <table id="orders_table" border="1">
+                    <thead>
+                    <tr>
+                        <th>Заказ</th>
+                        <th>Продукт</th>
+                        <th>Цена</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                        <th>Управление</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in user_orders %}
+                        <tr>
+                            <td>{{ order.title }}</td>
+                            <td>{{ order.product.title }}</td>
+                            <td>{{ order.amount }}</td>
+                            <td>{{ order.date }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>
+                                <button class="btn btn-primary">Удалить</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+				<!-- /Content Placeholder -->
+			</div>
+		</div>
+	</div>
+    <div class="cart-summary">
+        <h4 id="count"> Количество товаров: 0 шт.</h4>
+        <h4 id="amount">Общая стоимость: 0.00 грн</h4>
+    </div>
+    <style>
+        #orders_table {
+                width: 100%;
+                }
+        #orders_table th {
+                text-align: center;
+                front-size: 10pt;
+                padding: 5px;
+                color: darkcyan;
+                font-weight: normal;
+                font-style: italic;
+        }
+        #orders_table td {
+                text-align: center;
+                padding: 5px;
+                }
+        .cart-summary {
+                text-align: center;
+                front-size: 10pt;
+                padding: 5px;
+                color: darkcyan;
+                font-weight: normal;
+                font-style: italic;
+        }
+    </style>
+
+    <script src="{% static 'js/table_display.js' %}"></script>
+
+{% endblock content %}

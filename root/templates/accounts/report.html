@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html'%}
+
+{%block content%}
+		<div id="breadcrumb" class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">{{title}}</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="index">accounts</a></li>
+							<li class="active">report</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section small">
+			<div class="container">
+				<div class="row">
+                  <!-- CONTENT PLACEHOLDER-->
+                  <h4 style="color: {{ color_x }}">{{mess_x}}</h4>
+
+                  <!-- /CONTENT PLACEHOLDER-->
+				</div>
+			</div>
+		</div>
+{%endblock content%}
